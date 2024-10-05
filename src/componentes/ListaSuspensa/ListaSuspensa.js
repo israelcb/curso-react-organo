@@ -11,13 +11,15 @@ export function ListaSuspensa({ label, itens, obrigatorio, value, onChange }) {
             <label>{label}</label>
             <select
                 required={obrigatorio}
-                
+
                 value={value}
                 onChange={_onChange}
             >
-                {itens.map(item => {
-                    return <option key={item}>{item}</option>
-                })}
+                {itens.map(it =>
+                    <option key={it.valor}>
+                        {it.label}
+                    </option>
+                )}
             </select>
         </div>
     )

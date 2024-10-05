@@ -4,16 +4,7 @@ import CampoTexto from '../CampoTexto'
 import ListaSuspensa from '../ListaSuspensa'
 import './Formulario.css'
 
-export function Formulario({ onSubmit }) {
-    const times = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'UX e Design',
-        'Mobile',
-        'Inovação e Gestão',
-    ]
+export function Formulario({ times, onSubmit }) {
 
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
@@ -22,7 +13,12 @@ export function Formulario({ onSubmit }) {
 
     const _onSubmit = event => {
         event.preventDefault()
-        onSubmit({ nome, cargo, imagem, time })
+        onSubmit({ nome, cargo, imagem, time: time.nome })
+
+        setNome('')
+        setCargo('')
+        setImagem('')
+        setTime(times[0])
     }
 
     return (
@@ -58,8 +54,8 @@ export function Formulario({ onSubmit }) {
 
                 <ListaSuspensa
                     label="Time"
-                    itens={times}
                     obrigatorio={true}
+                    itens={times.map(t => ({ label: t.nome, valor: t.nome }))}
 
                     value={time}
                     onChange={setTime}
