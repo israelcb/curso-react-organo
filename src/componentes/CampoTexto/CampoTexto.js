@@ -1,10 +1,10 @@
 import './CampoTexto.css'
 
-export function CampoTexto({ label, placeholder }) {
+export function CampoTexto({ label, placeholder, obrigatorio }) {
     return (
         <div className="campo-texto">
             <label>{label}</label>
-            <input placeholder={placeholder} />
+            <input placeholder={placeholder} required={obrigatorio}/>
         </div>
     )
 }
