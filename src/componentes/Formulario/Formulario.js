@@ -9,16 +9,16 @@ export function Formulario({ times, onSubmit }) {
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [imagem, setImagem] = useState('')
-    const [time, setTime] = useState(times[0])
+    const [time, setTime] = useState('')
 
     const _onSubmit = event => {
         event.preventDefault()
-        onSubmit({ nome, cargo, imagem, time: time.nome })
+        onSubmit({ nome, cargo, imagem, time })
 
         setNome('')
         setCargo('')
         setImagem('')
-        setTime(times[0])
+        setTime('')
     }
 
     return (

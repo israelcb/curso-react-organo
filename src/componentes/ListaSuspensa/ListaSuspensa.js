@@ -15,6 +15,7 @@ export function ListaSuspensa({ label, itens, obrigatorio, value, onChange }) {
                 value={value}
                 onChange={_onChange}
             >
+                <option value="">Selecione um time</option>
                 {itens.map(it =>
                     <option key={it.valor}>
                         {it.label}
